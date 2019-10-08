@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>َAnimated Login Form</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
+
+<body>
+
+    <form class="box">
+        <h1>سوف ينتهي العرض خلال يوم سارع قبل الأنتهاء</h1>
+        <img src="{{ url_for('static',filename='supercell-art-artstation-icewizard.jpg') }}" />
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" value="تسجيل الدخول">
+    </form>
+
+
+</body>
+
+</html>
