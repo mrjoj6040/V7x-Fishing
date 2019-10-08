@@ -22,7 +22,7 @@ body {
     color: white;
     text-transform: uppercase;
     font-weight: 500;
-    font-size: 60pt;
+    font-size: 40pt;
 }
 
 .box input[type="text"],
@@ -33,13 +33,13 @@ body {
     margin: 20px auto;
     text-align: center;
     border: 2px solid #3498db;
-    padding: 20px 200px;
+    padding: 25px 250px;
     width: 200px;
     outline: none;
     color: white;
     border-radius: 24px;
     transition: 0.25s;
-    font-size: 15pt;
+    font-size: 25pt;
 }
 
 .box input[type="text"]:focus,

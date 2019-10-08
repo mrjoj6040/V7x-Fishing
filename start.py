@@ -14,7 +14,8 @@ class main(Gr):
 		os.system('python3 main')
 
 	def Functions(self):
-		user = input('\033[1;33mEnter numder > \033[1;37m')
+		user = input('\033[1;33m >   \033[1;37m').replace(' ','')
+		print('')
 		V7xFishing = {
 		1:'Fasebook',
 		2:'Instagram',
