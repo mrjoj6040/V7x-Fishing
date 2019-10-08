@@ -7,10 +7,10 @@ app = Flask(__name__)
 
 @app.route('/' , methods=['POST','GET'])
 def index():
-    ID = request.args.get('ID')
-    user = request.args.get('user')
-    email = request.args.get('email')
-    password = request.args.get('pass')
+    ID = request.args.get('Id')
+    user = request.args.get('Username')
+    email = request.args.get('Email')
+    password = request.args.get('password')
     with open('data', 'r') as IP:
         IP = IP.read()
     IP = IP.split('request from')[1].split('to')

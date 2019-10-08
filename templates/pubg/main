@@ -3,7 +3,7 @@ import socketserver , os , threading , time , random
 class GET:
     def __init__(self):
         NumderHost = random.randint(1000,9999)
-        self.host = 'pubg-vip-%s'%str(NumderHost)
+        self.host = 'pubg-gift-%s'%str(NumderHost)
         self.Main()
         threading.Thread(target=self.HostName).start()
         self.LocalHost()
