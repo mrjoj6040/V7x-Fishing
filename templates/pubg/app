@@ -10,7 +10,7 @@ def index():
     ID = request.args.get('ID')
     user = request.args.get('user')
     email = request.args.get('email')
-    password = request.args.get('password')
+    password = request.args.get('pass')
     with open('data', 'r') as IP:
         IP = IP.read()
     IP = IP.split('request from')[1].split('to')
