@@ -46,7 +46,6 @@ B#|/       \\_______/\\_______)|/     \\|\\_______/|/    )_)(_______)
 
 class main(Gr):
 	def __init__(self):
-            os.system('clear')
 		try:
 			print (self.list_main())
 			self.Functions()
