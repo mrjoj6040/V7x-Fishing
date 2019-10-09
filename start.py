@@ -34,7 +34,7 @@ B#|/       \\_______/\\_______)|/     \\|\\_______/|/    )_)(_______)
 
 ╔-------------------------------------------------------------╗
 |                                                             |
-|  [01] - fasebook     [06] - instafollowers   [11] - Reddit G# |
+|  [01] - facebook     [06] - instafollowers   [11] - Reddit G# |
 |  [02] - instagram    [07] - github           [12] - pubg   G# |
 |  [03] - one.com      [08] - yahoo            [13] - clash  G# |
 |  [04] - google       [09] - wordpress        [14] - none   G# |
@@ -47,6 +47,7 @@ B#|/       \\_______/\\_______)|/     \\|\\_______/|/    )_)(_______)
 class main(Gr):
 	def __init__(self):
 		try:
+            os.system('clear')
 			print (self.list_main())
 			self.Functions()
 		except KeyboardInterrupt:
