@@ -83,6 +83,5 @@ class main(Gr):
 			print('\033[1;31m[!] Not found [!]\n')
 			self.Functions()
 
-
 if __name__ == '__main__':
 	main()
