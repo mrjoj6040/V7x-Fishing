@@ -75,7 +75,7 @@ class main(Gr):
 		12:'pubg',
 		13:'Clash',
 		14:'pubg2',
-		15:'',
+		15:'MyPage',
 					}
 		try:
 			self.FunctionsRun(V7xFishing[int(user)])
