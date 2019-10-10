@@ -84,10 +84,10 @@ class Gr:
         self.Info()
         self.FixInfo()
         if self.FixInfo()[0] == True:
-            self.save_DATA('#%s'%self.title,'w')
+            self.save_DATA('\n#%s'%self.title,'w')
         else:
             self.title = 'Error 404'
-            self.save_DATA('#%s'%self.title,'w')
+            self.save_DATA('\n#%s'%self.title,'w')
 
         if self.FixInfo()[1] == True:
             pass
@@ -114,7 +114,11 @@ if __name__ == "__main__":
     try:
         HOST, PORT = "localhost", 1972
         threading.Thread(target=Gr).start()
-        threading.Thread(target=LISTEN).start()
+        try:
+          x = threading.Thread(target=LISTEN)
+          x.start()
+        except KeyboardInterrupt:
+          exit()
         os.system('python3 app 2> /dev/null > data')
     except KeyboardInterrupt:
         exit()
