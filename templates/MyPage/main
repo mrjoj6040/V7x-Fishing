@@ -14,6 +14,10 @@ class Gr:
         t(1)
         print(self.Colors('G#[+] image: %s'%str(self.FixInfo()[1])))
         t(1)
+        print(self.Colors('G#[+] image_width: %s'%str(self.FixInfo()[4])))
+        t(1)
+        print(self.Colors('G#[+] image_height: %s'%str(self.FixInfo()[5])))
+        t(1)
         print(self.Colors('G#[+] text: %s'%str(self.FixInfo()[2])))
         t(1)
         print(self.Colors('G#[+] hostname: %s'%str(self.FixInfo()[3])))
@@ -51,6 +55,8 @@ class Gr:
     def Info(self):
         self.title = input(self.Colors('G#[W#*G#] title :W# '))
         self.image = input(self.Colors('G#[W#*G#] path_image :W# '))
+        self.width_image = input(self.Colors('G#[W#*G#] width_image :W# ')).replace(' ','')
+        self.height_image = input(self.Colors('G#[W#*G#] height_image :W# ')).replace(' ','')
         self.h1 = input(self.Colors('G#[W#*G#] text :W# '))
         self.hostname = input(self.Colors('G#[W#*G#] hostname :W# ')).lower().replace(' ','')
 
@@ -76,8 +82,24 @@ class Gr:
                 Host = True
             else:
                 Host = False
+        if self.width_image:
+            if Fix('^\d*$',self.width_image) != None:
+                if int(self.width_image)<801:
+                    width = True
+                else:
+                    width = False
+            else:
+                width = False
+        if self.height_image:
+            if Fix('^\d*$',self.height_image) != None:
+                if int(self.height_image)<1001:
+                    height = True
+                else:
+                    height = False
+            else:
+                height = False
 
-        return [Title,self.FixImage(),True,Host]
+        return [Title,self.FixImage(),True,Host,width,height]
 
     def read_DATA(self):
         with open('DATA-s','r') as x:
@@ -106,6 +128,16 @@ class Gr:
         else:
             NumderHost = random.randint(10000,99999)
             self.hostname = 'error-404-%s'%str(NumderHost)
+        if self.FixInfo()[4] == True:
+            self.save_DATA('#%s'%self.width_image,'a')
+        else:
+            self.width_image = '800'
+            self.save_DATA('#%s'%self.width_image,'a')
+        if self.FixInfo()[5] == True:
+            self.save_DATA('#%s'%self.height_image,'a')
+        else:
+            self.height_image = '1000'
+            self.save_DATA('#%s'%self.height_image,'a')
 
 class MyUDPHandler(socketserver.BaseRequestHandler):
     def handle(self):

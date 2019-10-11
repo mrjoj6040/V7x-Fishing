@@ -41,7 +41,15 @@ def context_processor():
         H1 = H1.read()
         H1 = H1.split('#')
         H1 = H1[2].replace('\n','')
-    return dict(txt=H1,T=text)
+    with open('DATA-s','r') as width:
+        width = width.read()
+        width = width.split('#')
+        width = width[3].replace('\n','')
+    with open('DATA-s','r') as height:
+        height = height.read()
+        height = height.split('#')
+        height = height[4].replace('\n','')
+    return dict(txt=H1,T=text,width=width,height=height)
 
 try:
   app.run(debug=False ,port=PORT)
