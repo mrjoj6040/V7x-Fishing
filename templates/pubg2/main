@@ -1,5 +1,10 @@
 import socketserver , os , threading , time , random
-
+port__1 = random.randint(1000,9999)
+with open('PORT','w') as wf:
+  wf.write(str(port__1))
+with open('PORT','r') as rf:
+  port = int(rf.read())
+HOST, PORT = "localhost", port
 class GET:
     def __init__(self):
         NumderHost = random.randint(1000,9999)
@@ -12,7 +17,7 @@ class GET:
         os.system('python3 app 2> /dev/null > data')
 
     def HostName(self):
-        os.system('ssh -o ServerAliveInterval=60 -R %s:80:localhost:1972 serveo.net 2> /dev/null > data'%self.host)
+        os.system('ssh -o ServerAliveInterval=60 -R {}:80:localhost:{} serveo.net 2> /dev/null > data'.format(self.host,port))
 
     def Main(self):
         print('\033[1;32m[\033[1;37m*\033[1;32m] Starting localhost server...')
@@ -42,8 +47,6 @@ if __name__ == "__main__":
     try:
         Get = threading.Thread(target=GET)
         Get.start()
-
-        HOST, PORT = "localhost", 1972
         with socketserver.UDPServer((HOST, PORT), MyUDPHandler) as server:
             server.serve_forever()
     except KeyboardInterrupt:

@@ -1,13 +1,9 @@
-[32mForwarding HTTP traffic from https://clash-gift-75367.serveo.net
-[0mPress g to start a GUI session and ctrl-c to quit.
-HTTP request from 87.150.125.57 to https://clash-gift-75367.serveo.net/
-HTTP request from 87.150.125.57 to https://clash-gift-75367.serveo.net/static/style.css
-HTTP request from 87.150.125.57 to https://clash-gift-75367.serveo.net/static/supercell-art-artstation-icewizard.jpg
-HTTP request from 87.150.125.57 to https://clash-gift-75367.serveo.net/favicon.ico
-HTTP request from 87.150.125.57 to https://clash-gift-75367.serveo.net/
-HTTP request from 87.150.125.57 to https://clash-gift-75367.serveo.net/?username=23454321234&password=345432345234
-HTTP request from 87.150.125.57 to https://clash-gift-75367.serveo.net/?username=&password=
-HTTP request from 87.150.125.57 to https://clash-gift-75367.serveo.net/?username=&password=
-HTTP request from 87.150.125.57 to https://clash-gift-75367.serveo.net/?username=&password=
-HTTP request from 87.150.125.57 to https://clash-gift-75367.serveo.net/?username=&password=
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it inHTTP request from 87.150.125.57 to https://clash-gift-17203.serveo.net/
+HTTP request from 87.150.125.57 to https://clash-gift-17203.serveo.net/static/style.css
+HTTP request from 87.150.125.57 to https://clash-gift-17203.serveo.net/static/supercell-art-artstation-icewizard.jpg
+HTTP request from 87.150.125.57 to https://clash-gift-17203.serveo.net/
+HTTP request from 87.150.125.57 to https://clash-gift-17203.serveo.net/favicon.ico
+HTTP request from 87.150.125.57 to https://clash-gift-17203.serveo.net/?username=hvkbvn&password=kjgkjfgfjgf
 

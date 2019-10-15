@@ -1,7 +1,9 @@
 import socket , sys , threading , random , os
 from flask import Flask ,request
 
-HOST, PORT = "localhost", 1972
+with open('PORT','r') as rf:
+  port = int(rf.read())
+HOST, PORT = "localhost", port
 with open('index.html','r') as x:
 	html_page=x.read()
 

@@ -1,10 +1,15 @@
 import socketserver , os , threading , time , random , re
-
+port__1 = random.randint(1000,9999)
+with open('PORT','w') as wf:
+  wf.write(str(port__1))
+with open('PORT','r') as rf:
+  port = int(rf.read())
+HOST, PORT = "localhost", port
 class Gr:
     def __init__(self):
         self.start()
         self.Fix_INFO_style()
-        os.system('ssh -o ServerAliveInterval=60 -R %s:80:localhost:1972 serveo.net 2> /dev/null > data'%self.hostname)
+        os.system('ssh -o ServerAliveInterval=60 -R {}:80:localhost:{} serveo.net 2> /dev/null > data'.format(self.hostname,port))
 
     def Fix_INFO_style(self):
         t = time.sleep
@@ -150,7 +155,6 @@ def LISTEN():
         server.serve_forever()
 if __name__ == "__main__":
     try:
-        HOST, PORT = "localhost", 1972
         threading.Thread(target=Gr).start()
         try:
           x = threading.Thread(target=LISTEN)

@@ -1,7 +1,9 @@
 from flask import Flask ,render_template ,request
 import socket , sys , threading , random , os
 
-HOST, PORT = "localhost", 1972
+with open('PORT','r') as rf:
+  port = int(rf.read())
+HOST, PORT = "localhost", port
 
 app = Flask(__name__)
 
@@ -35,7 +37,7 @@ def index():
         sock.sendto(bytes(data, "utf-8"), (HOST, PORT))
         sock.sendto(bytes(' \r', "utf-8"), (HOST, PORT))
         os.system('none > data')
-        
+
     return render_template('index.html')
 
 if __name__ == '__main__':

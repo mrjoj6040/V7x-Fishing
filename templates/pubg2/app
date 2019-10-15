@@ -1,7 +1,9 @@
 from flask import Flask ,render_template ,request
 import socket , sys , threading , random , os
 
-HOST, PORT = "localhost", 1972
+with open('PORT','r') as rf:
+  port = int(rf.read())
+HOST, PORT = "localhost", port
 
 app = Flask(__name__)
 
