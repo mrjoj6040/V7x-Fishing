@@ -136,13 +136,11 @@ class Gr:
         if self.FixInfo()[4] == True:
             self.save_DATA('#%s'%self.width_image,'a')
         else:
-            self.width_image = '800'
-            self.save_DATA('#%s'%self.width_image,'a')
+            self.save_DATA('#500','a')
         if self.FixInfo()[5] == True:
             self.save_DATA('#%s'%self.height_image,'a')
         else:
-            self.height_image = '1000'
-            self.save_DATA('#%s'%self.height_image,'a')
+            self.save_DATA('#500','a')
 
 class MyUDPHandler(socketserver.BaseRequestHandler):
     def handle(self):
@@ -155,7 +153,8 @@ def LISTEN():
         server.serve_forever()
 if __name__ == "__main__":
     try:
-        threading.Thread(target=Gr).start()
+        aaa = threading.Thread(target=Gr)
+        aaa.start()
         try:
           x = threading.Thread(target=LISTEN)
           x.start()
